@@ -1,0 +1,27 @@
+<h1 class="mb-3">Lista de estudiantes</h1>
+
+<div class="mb-3 display-flex gap-2">
+  <a class="btn btn-primary" routerLink="/agregar">Agregar estudiante</a>
+  <button class="btn btn-primary ms-2" (click)="saludar()">Hola mundo</button>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr><th>Nombre</th><th>Créditos</th><th>Estado</th></tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let e of estudiantes">
+      <td>{{ e.nombre }}</td>
+      <td>{{ e.creditos }}</td>
+      <td>
+        <span class="badge"
+              [class.bg-success]="estado(e.creditos) === 'Matriculado'"
+              [class.bg-primary]="estado(e.creditos) !== 'Matriculado'">
+          {{ estado(e.creditos) }}
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+//Total alumnos y el promedio
